@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CloudTask</title>
+  <style>
+    body { font-family: sans-serif; max-width: 480px; margin: 40px auto; padding: 0 16px; }
+    h1 { color: #ff9900; }
+    input { padding: 8px; width: 70%; }
+    button { padding: 8px 14px; }
+    li { padding: 6px 0; border-bottom: 1px solid #ddd; }
+  </style>
+</head>
+<body>
+  <h1>CloudTask</h1>
+
+  <form action="/add" method="post">
+    <input name="title" placeholder="What needs to be done?" maxlength="255" required>
+    <button type="submit">Add</button>
+  </form>
+
+  <ul>
+    {% for id, title in tasks %}
+      <li>{{ title }}</li>
+    {% else %}
+      <li>No tasks yet.</li>
+    {% endfor %}
+  </ul>
+</body>
+</html>
